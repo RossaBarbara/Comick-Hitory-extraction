@@ -1,7 +1,30 @@
-# Comick-Hitory-extraction
-PY script to extract data from your browser (i.e. Firefox :P) related to comics you viewed on Comick (RIP).
-Beta script for gecko & chromium is available but was not extensively tested. User discretion is advised if you want to use it.
+# PaperTrail
 
-The goal of this this script is to get a list of comic pages you've visited from the the Firefox profile files (places.sqlite). This is just a temporary band aid for anyone who would like to get a list of comics they viewed in the past.
-The script reads your history & bookmarks and writes the unique entries to a SQLITE database (I highly recommend to instal the https://sqlitebrowser.org as the file is indexed and ready to read).
-The script is provided 'as-it-is'. If you want more browsers or more functions you have my permission to use it as the base for your own creation. ;)
+PaperTrail is a browser history extractor designed specifically for [Comick.io](https://comick.io).  
+It scans your browsing history across supported browsers, finds all visited comic pages, and organizes them into a structured SQLite database that shows your latest progress for each series.
+
+---
+
+## Features
+- Detects all visited `https://comick.io/comic/...` pages
+- Parses chapter and volume numbers (e.g. `ch001`, `v001`)
+- Tracks the **latest chapter/volume read** for each series
+- Saves results in a SQLite database:
+  - One record per series
+  - Includes series identifier (URL slug), latest chapter/volume, and source browser profile
+- Output file is timestamped (`PaperTrail_YYYY-MMM-DD_HH-MM-SS.sqlite`)
+- Works with multiple browsers:
+  - Firefox
+  - Chrome
+  - Edge
+  - Brave
+  - Opera
+
+---
+
+## Usage
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/PaperTrail.git
+cd PaperTrail
