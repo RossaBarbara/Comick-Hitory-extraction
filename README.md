@@ -1,24 +1,27 @@
 # PaperTrail
 
-PaperTrail is a browser history extractor designed specifically for [Comick.io](https://comick.io).  
-It scans your browsing history across supported browsers, finds all visited comic pages, and organizes them into a structured SQLite database that shows your latest progress for each series.
+PaperTrail is a Comick.io reading tracker.  
+It scans your browser history for comic pages, extracts the comic slug, and records the latest chapter or volume you’ve read. Results are saved to a timestamped SQLite database.
 
 ---
 
 ## Features
-- Detects all visited `https://comick.io/comic/...` pages
-- Parses chapter and volume numbers (e.g. `ch001`, `v001`)
-- Tracks the **latest chapter/volume read** for each series
-- Saves results in a SQLite database:
-  - One record per series
-  - Includes series identifier (URL slug), latest chapter/volume, and source browser profile
-- Output file is timestamped (`PaperTrail_YYYY-MMM-DD_HH-MM-SS.sqlite`)
-- Works with multiple browsers:
-  - Firefox
-  - Chrome
-  - Edge
-  - Brave
-  - Opera
+- Focused on **Comick.io** (`https://comick.io/comic/...`)
+- Works across platforms: **Windows, Linux, macOS**
+- Supports multiple browsers:
+  - Firefox, Waterfox, LibreWolf, Pale Moon
+  - Chrome, Edge, Brave, Opera, Vivaldi, Ungoogled-Chromium
+- Detects and records:
+  - Latest **chapter** read (`ch001`, `ch010`, etc.)
+  - Latest **volume** read (`v001`, etc.)
+- Deduplicates multiple visits into one record per comic
+- Prioritizes **history** over bookmarks
+- Exports results to a timestamped SQLite database:  
+  `Papers_YYYY-MMM-DD_HH-MM-SS.sqlite`
+- Prints a summary report of:
+  - comics found
+  - duplicates removed
+  - unique entries saved
 
 ---
 
